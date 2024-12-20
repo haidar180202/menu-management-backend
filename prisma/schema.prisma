@@ -9,10 +9,9 @@ generator client {
 
 model Menu {
   id        String   @id @default(uuid())
-  name      String
-  parentId  String?  @default(null)
+  name      String   
+  parentId  String?  
   depth     Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  children  Menu[]   @relation("MenuChildren", fields: [id], references: [parentId])
 }
