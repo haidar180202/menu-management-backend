@@ -13,6 +13,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen("https://menu-management-backend-weld.vercel.app/");
+  await app.listen("https://menu-management-backend-weld.vercel.app");
 }
 bootstrap();
