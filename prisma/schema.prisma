@@ -8,10 +8,14 @@ generator client {
 }
 
 model Menu {
-  id        String   @id @default(uuid())
-  name      String   
-  parentId  String?  
-  depth     Int      @default(0)
+  id       String   @id @default(uuid())
+  name     String
+  parentId String?  // Null jika root item
+  parent   Menu?    @relation("ParentChild", fields: [parentId], references: [id])
+  children Menu[]   @relation("ParentChild")
+  depth    Int      // Menyimpan level kedalaman menu
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+
